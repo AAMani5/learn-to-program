@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# Extend Integer & Array class
 # Extending Integer class
 class Integer
 
@@ -29,3 +30,33 @@ p 99.to_roman # XCIX
 p 5.factorial # 120
 p 4.factorial # 24
 p 3.factorial # 6
+
+
+
+# Extending Array class
+class Array
+  def shuffle
+    shuffled = [] # to store shuffled result
+    already = []  # to store already generated rand numbers
+    random_index = rand(self.length) # rand number for the first iteration
+    for index in 0..self.length-1
+      while ((already.include? random_index) || (index == random_index)) # loop to produce unique rand & != i
+        if ((random_index == self.length-1) && (already.sort == (0..self.length-2).to_a))
+          break
+        end
+        random_index = rand(self.length)
+      end
+      already << random_index
+      shuffled[random_index] = self[index]
+    end
+  shuffled
+  end
+end
+test1 = ["zebra","anaconda","rat","cat","bat","dog"]
+test2 = ["anaconda","bat","zebra","anaconda"]
+test3 = ["Zebra","anaconda","rat","cat","bat","dog"]
+test4 = ["ape","bat","cat","dog","elephant"]
+p test1.shuffle
+p test2.shuffle
+p test3.shuffle
+p test4.shuffle
