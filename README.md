@@ -10,4 +10,6 @@ File structure :
       		├── ex1.rb  
       		└── ex2.rb
 
-To run the script use ./filename in its current folder
+To run the script use `./<filename>` in its current folder
+
+![Book Cover](./img/chris_pine_book_cover.jpg "Book Cover")
